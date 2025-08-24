@@ -1,7 +1,7 @@
 (defpackage ningle-email
   (:use :cl)
   (:export #:mail-admins
-           #:send-email))
+           #:send-mail))
 
 (in-package ningle-email)
 
@@ -11,12 +11,16 @@
         (admins (envy-ningle:get-config :email-admins)))
     (send-mail (format nil "[~A]: ~A" project-name subject) message admins)))
 
-(defun send-mail (subject message to &key (from (envy-ningle:get-config :email-default-from)))
+(defun send-mail (subject content to &key (from (envy-ningle:get-config :email-default-from)))
   "Sends arbitrary email"
   (let ((email-backend (envy-ningle:get-config :email-backend)))
     (case email-backend
         (:dummy
-            (format t "from: ~A~%to: ~A~%subject: ~A~%content: ~A~%" from to subject message))
+         (progn
+            (format t "from: ~A~%" from)
+            (format t "to: ~A~%" to)
+            (format t "subject: ~A~%" subject)
+            (format t "content: ~A~%" content)))
 
         (:smtp
             (cl-smtp:send-email
