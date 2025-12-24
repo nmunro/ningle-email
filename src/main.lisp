@@ -22,6 +22,13 @@
             (format t "subject: ~A~%" subject)
             (format t "content: ~A~%" content)))
 
+        (:string
+          (with-output-to-string (email)
+            (format email "from: ~A~%" from)
+            (format email "to: ~A~%" to)
+            (format email "subject: ~A~%" subject)
+            (format email "content: ~A~%" content)))
+
         (:smtp
             (cl-smtp:send-email
                 (envy-ningle:get-config :email-smtp-host)
