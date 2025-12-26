@@ -10,13 +10,11 @@ nmunro
 
 ## Usage
 
-{% highlight common_lisp %}
-;; To mail admins
-(mail-admins "Mailing admins" "This is a test email that should email all admins")
+    ;; To mail admins
+    (mail-admins "Mailing admins" "This is a test email that should email all admins")
 
-;; To mail a specific user
-(send-mail "Mailing user" "This is a test email" "someone@somewhere.com")
-{% endhighlight %}
+    ;; To mail a specific user
+    (send-mail "Mailing user" "This is a test email" "someone@somewhere.com")
 
 ## Configuration
 
