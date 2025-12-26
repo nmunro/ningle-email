@@ -1,5 +1,5 @@
 (defsystem "ningle-email"
-  :version "0.0.1"
+  :version "0.2.0"
   :author "nmunro"
   :license "BSD3-Clause"
   :description ""
