@@ -35,7 +35,7 @@
           from
           to
           subject
-          message
+          content
           :port (or (envy-ningle:get-config :email-port) 587)
           :ssl (or (envy-ningle:get-config :email-ssl) :starttls)
           :authentication (envy-ningle:get-config :email-auth)))
