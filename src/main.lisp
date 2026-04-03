@@ -45,7 +45,7 @@
           :to to
           :from from
           :subject subject
-          :content message
+          :content content
           :api-key (envy-ningle:get-config :email-sendgrid-api-key)))
 
       (otherwise
